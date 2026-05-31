@@ -127,7 +127,7 @@ export default function BookingForm() {
   const handleBlur = (field: keyof FormData) => {
     setTouched((prev) => ({ ...prev, [field]: true }));
     const newErrors = validate(form);
-    setErrors((prev) => ({ ...prev, [field]: newErrors[field] }));
+    setErrors((prev) => ({ ...prev, [field]: newErrors[field as keyof FormErrors] }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
